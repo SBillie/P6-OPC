@@ -1,6 +1,10 @@
 const http = require('http'); 
 const app = require('./app');
 
+//importer le pacakge pour utiliser les variables d'environnement
+const dotenv = require('dotenv').config();
+
+
 /* fonction renvoyant à un port valide*/
 const normalizePort = val => {
   const port = parseInt(val, 10);
@@ -13,6 +17,8 @@ const normalizePort = val => {
   }
   return false;
 };
+
+/*paramètrage du port avec la méthode set de Express*/
 const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
